@@ -28,7 +28,7 @@ def parse_file(conf_path=CONF_PATH):
     try:
         conf_raw = open(conf_path).read()
     except IOError:
-        print("File %s doesn't exist." % conf_path)
+        print("Configuration file %s doesn't exist." % conf_path)
         return {}, {}, {} # tools, paths, files
     # remove comments
     conf_raw = re.sub(r" *#.*?(\n|$)", "", conf_raw)
@@ -102,13 +102,14 @@ def parse_args():
     parser = argparse.ArgumentParser(description='ConfEdit')
     parser.add_argument('file', metavar='FILE', help='file to edit')
     parser.add_argument('tool', metavar='TOOL', default=None, nargs='?', help='tool to use')
-    parser.add_argument('--conf', metavar='CONFIG_PATH', default=CONF_PATH, nargs='?', help='path to configuration file')
+    parser.add_argument('--conf', metavar='CONFIG_PATH', default=None, nargs='?', help='path to configuration file')
     args = parser.parse_args()
     return args.file, args.tool, args.conf
 
-def main():
+def main(conf_path=CONF_PATH):
     # command-line arguments
-    file, tool, conf_path = parse_args()
+    file, tool, conf_path_arg = parse_args()
+    if conf_path_arg: conf_path = conf_path_arg
     # configuration
     tools, paths, files = parse_file(conf_path)
     # tool variables ordered as in configuration

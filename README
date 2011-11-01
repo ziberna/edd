@@ -1,9 +1,9 @@
 ConfEdit (C) 2011 Kantist
-=========================
+-------------------------
 
 
 Help message
-------------
+============
 usage: confedit [-h] [--conf [CONFIG_PATH]] FILE [TOOL]
 
 ConfEdit
@@ -18,7 +18,7 @@ optional arguments:
 
 
 Configuration sample
---------------------
+====================
 # a comment
 [TOOLS]
 vim
@@ -36,7 +36,7 @@ httpd=/etc/httpd/conf/httpd.conf with $somevar
 
 
 Sample of usage
----------------
+===============
 [jure@Kant ~]$ confedit xinit haha
 > Error running haha /home/jure/.xinitrc:
 No such file or directory: 'haha'
@@ -58,4 +58,11 @@ No such file or directory: 'haha'
 > Edited /home/jure/.xinitrc with nano.
 [jure@Kant ~]$
 
-!Recommended: Create alias for confedit (e.g. "conf" or "ed")
+
+Tips
+====
+1. Recommended: create alias for confedit (e.g. "ed" or "conf"). You will make
+   everything even shorter (example: "ed httpd" to edit /etc/httpd/conf/httpd.conf)
+2. To hardcode path to configuration file, pass the path to main function in
+   bin/confedit. This is useful for running confedit as root with configuration
+   file in your home folder
