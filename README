@@ -33,32 +33,32 @@ somevar=sometool -arg1 --arg2
 HOME=/home/myname
 
 [FILES]
-xinit=$HOME/.xinitrc
-i3=$HOME/.i3/config with vim
-httpd=/etc/httpd/conf/httpd.conf with $somevar
+httpd=/etc/httpd/conf/httpd.conf
+i3=$HOME/.i3/config with nano -x
+xinit=$HOME/.xinitrc with $somevar
 
 
 Sample of usage
 ===============
-[jure@Kant ~]$ ed xinit non-existent
-> Error running haha /home/jure/.xinitrc:
-No such file or directory: 'non-existent'
-[jure@Kant ~]$ ed xinit
-> Edited /home/jure/.xinitrc with vim.
-[jure@Kant ~]$ ed xinit ask
+[jure@Kant ~]$ ed httpd nonexistent
+> Error running nonexistent /etc/httpd/conf/httpd.conf:
+No such file or directory: 'nonexistent'
+[jure@Kant ~]$ ed httpd
+> Edited /etc/httpd/conf/httpd.conf with vim.
+[jure@Kant ~]$ ed httpd ask
    1) vim
    2) nano
    3) geany
 > Choose tool or type a command (default=1): 3
-> Edited /home/jure/.xinitrc with geany.
-[jure@Kant ~]$ ed xinit ask
+> Edited /etc/httpd/conf/httpd.conf with geany.
+[jure@Kant ~]$ ed httpd ask
    1) vim
    2) nano
    3) geany
 > Choose tool or type a command (default=1): nano -x
-> Edited /home/jure/.xinitrc with nano -x.
-[jure@Kant ~]$ ed xinit "vim -e"
-> Edited /home/jure/.xinitrc with vim -e.
+> Edited /etc/httpd/conf/httpd.conf with nano -x.
+[jure@Kant ~]$ ed httpd "vim -e"
+> Edited /etc/httpd/conf/httpd.conf with vim -e.
 [jure@Kant ~]$
 
 * It may seem confusing, but before ed says "Edited x with y.", it actually
