@@ -1,0 +1,6 @@
+#!/usr/bin/env python3
+import ed
+# pass configuration path to main function if you want to use one config for
+# all users:
+#ed.main("/path/to/my/config/file/")
+ed.main()

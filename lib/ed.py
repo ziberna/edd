@@ -1,5 +1,5 @@
-# ConfEdit
-# Copyright (C) 2011 Kantist
+# Ed
+# Copyright  (C) 2011  Jure Žiberna
 #
 #     This program is free software: you can redistribute it and/or modify
 #     it under the terms of the GNU General Public License as published by
@@ -15,13 +15,15 @@
 #     along with this program.
 #     If not, see http://www.gnu.org/licenses/gpl-3.0.html
 
+DESCRIPTION = "Ed  (C) 2011  Jure Žiberna"
+
 import os
 import re
 import subprocess
 import shlex
 import argparse
 
-CONF_PATH = os.environ['HOME'] + '/.config/confedit'
+CONF_PATH = os.environ['HOME'] + '/.config/ed'
 
 def parse_file(conf_path=CONF_PATH):
     # read configuration from file, return empty settings on failure
@@ -99,7 +101,7 @@ def parse_vars(string, vars):
 
 # parse command-line arguments
 def parse_args():
-    parser = argparse.ArgumentParser(description='ConfEdit')
+    parser = argparse.ArgumentParser(description=DESCRIPTION)
     parser.add_argument('file', metavar='FILE', help='file to edit')
     parser.add_argument('tool', metavar='TOOL', default=None, nargs='?', help='tool to use')
     parser.add_argument('--conf', metavar='CONFIG_PATH', default=None, nargs='?', help='path to configuration file')

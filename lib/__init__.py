@@ -1,1 +1,1 @@
-from confedit.confedit import *
+from ed.ed import *

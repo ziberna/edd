@@ -1,12 +1,15 @@
-ConfEdit (C) 2011 Kantist
--------------------------
+
+    Ed  (C) 2011  Jure Žiberna
+    This program comes with ABSOLUTELY NO WARRANTY.
+    This is free software, and you are welcome to redistribute it
+    under the terms of the GNU General Public License, version 3 or later.
 
 
 Help message
 ============
-usage: confedit [-h] [--conf [CONFIG_PATH]] FILE [TOOL]
+usage: ed [-h] [--conf [CONFIG_PATH]] FILE [TOOL]
 
-ConfEdit
+Ed  (C) 2011  Jure Žiberna
 
 positional arguments:
   FILE                  file to edit
@@ -37,32 +40,34 @@ httpd=/etc/httpd/conf/httpd.conf with $somevar
 
 Sample of usage
 ===============
-[jure@Kant ~]$ confedit xinit haha
+[jure@Kant ~]$ ed xinit non-existent
 > Error running haha /home/jure/.xinitrc:
-No such file or directory: 'haha'
-[jure@Kant ~]$ confedit xinit
+No such file or directory: 'non-existent'
+[jure@Kant ~]$ ed xinit
 > Edited /home/jure/.xinitrc with vim.
-[jure@Kant ~]$ confedit xinit ask
+[jure@Kant ~]$ ed xinit ask
    1) vim
    2) nano
    3) geany
 > Choose tool or type a command (default=1): 3
 > Edited /home/jure/.xinitrc with geany.
-[jure@Kant ~]$ confedit xinit ask
+[jure@Kant ~]$ ed xinit ask
    1) vim
    2) nano
    3) geany
 > Choose tool or type a command (default=1): nano -x
 > Edited /home/jure/.xinitrc with nano -x.
-[jure@Kant ~]$ confedit xinit nano
-> Edited /home/jure/.xinitrc with nano.
+[jure@Kant ~]$ ed xinit "vim -e"
+> Edited /home/jure/.xinitrc with vim -e.
 [jure@Kant ~]$
 
+* It may seem confusing, but before ed says "Edited x with y.", it actually
+  opens file x with command y. The message is shown after you have closed the
+  tool, tool being an editor with graphical or command-line user interface, or
+  any command you wish to pass the file path to.
 
 Tips
 ====
-1. Recommended: create alias for confedit (e.g. "ed" or "conf"). You will make
-   everything even shorter (example: "ed httpd" to edit /etc/httpd/conf/httpd.conf)
-2. To hardcode path to configuration file, pass the path to main function in
-   bin/confedit. This is useful for running confedit as root with configuration
-   file in your home folder
+1. To hardcode path to configuration file, pass the path to main function in
+   bin/ed. This is useful for running ed as root with configuration
+   file in your home folder.
