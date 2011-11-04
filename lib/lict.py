@@ -14,6 +14,20 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.
 # If not, see http://www.gnu.org/licenses/gpl-3.0.html
+#
+# Lict is a mix between a list and a dictionary. Features:
+#  - values/keys ordered as they were assigned
+#  - possible to access and set values via both index and key
+#      key: print(var[key]) => prints value
+#      index: print(var(index)) => prints key (explained bellow)
+#      key: var[key] = value => sets value
+#      index: var(index, value) => sets value
+#  - possible to pass _anything_ to constructor or update method, it will be
+#    automatically added to lict
+#
+# var(index) prints key:
+# This is the only way to get _key_ AND _value_ via index.
+# So to set get the value at index x, you would have to do var[var(x)].
 
 class lict(dict):
     def __init__(self, *args, **kwargs):
@@ -30,6 +44,9 @@ class lict(dict):
                 self[arg] = arg
         for kwarg in kwargs:
             self[key]
+    
+    def index(self, key):
+        return self.__list__.index(key)
     
     def __setitem__(self, key, value):
         if key not in self.__list__:
