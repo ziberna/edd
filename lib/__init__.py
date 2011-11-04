@@ -1,1 +1,1 @@
-from ed.ed import *
+from .ed import *

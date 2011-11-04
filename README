@@ -7,9 +7,9 @@
 
 Help message
 ============
-usage: ed [-h] [--conf [CONFIG_PATH]] FILE [TOOL]
+usage: ed [-h] [--conf [CONFIG_PATH]] [FILE] [TOOL]
 
-Ed  (C) 2011  Jure Žiberna
+Ed (C) 2011 Jure Žiberna
 
 positional arguments:
   FILE                  file to edit
