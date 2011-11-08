@@ -5,6 +5,13 @@
     under the terms of the GNU General Public License, version 3 or later.
 
 
+Installation
+============
+1. copy the file from bin to your $PATH (e.g. /usr/bin)
+2. copy ed directory to your $PYTHONPATH (e.g. /usr/lib/python3.2/site-packages)
+3. create file ~/.config/ed
+4. read configuration sample bellow and edit the file ~/.config/ed
+
 Help message
 ============
 usage: ed [-h] [--conf [CONFIG_PATH]] [FILE] [TOOL]
@@ -68,6 +75,14 @@ No such file or directory: 'nonexistent'
 
 Tips
 ====
-1. To hardcode path to configuration file, pass the path to main function in
+1. You can use empty string for a variable. This is useful for a file variable,
+   which makes ed open that file by default, without passing any arguments.
+   You could do something like this:
+
+----------a part from an Ed's config file----------
+=$HOME/a-file-i-edit-often
+---------------------------------------------------
+
+2. To hardcode path to configuration file, pass the path to main function in
    bin/ed. This is useful for running ed as root with configuration
    file in your home folder.
