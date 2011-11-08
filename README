@@ -12,6 +12,7 @@ Installation
 3. create file ~/.config/ed
 4. read configuration sample bellow and edit the file ~/.config/ed
 
+
 Help message
 ============
 usage: ed [-h] [--conf [CONFIG_PATH]] [FILE] [TOOL]
