@@ -48,6 +48,12 @@ class lict(dict):
     def index(self, key):
         return self.__list__.index(key)
     
+    def reverse(self):
+        clone = lict(self)
+        clone.__list__ = list(self.__list__)
+        clone.__list__.reverse()
+        return clone
+    
     def __setitem__(self, key, value):
         if key not in self.__list__:
             self.__list__.append(key)
@@ -66,6 +72,9 @@ class lict(dict):
     
     def __iter__(self):
         return self.__list__.__iter__()
+    
+    def __reversed__(self):
+        return self.__list__.__reversed__()
     
     def __repr__(self):
         return '[%s]' % ', '.join(['%s: %s' %  (repr(key), repr(self[key])) for key in self.__list__])

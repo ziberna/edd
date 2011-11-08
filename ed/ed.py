@@ -71,11 +71,12 @@ def parse_conf(conf_path=CONF_PATH):
             tool = var
         tools[var] = tool
     
-    paths = {}
+    paths = lict()
     for path in conf['PATHS']:
         var, sep, path = path.partition('=')
-        if not path: continue
-        paths[var] = path
+        if not path:
+            path = var
+        paths[var] = {'path':path}
     
     files = lict()
     for file in conf['FILES']:
@@ -85,6 +86,7 @@ def parse_conf(conf_path=CONF_PATH):
         file, sep, tool = file.partition(' with ')
         if '$' in file:
             file = parse_vars(file, paths)
+            file = parse_vars(file, files)
         if '$' in tool:
             tool = parse_vars(tool, tools)
         files[var] = {'path': file}
@@ -93,11 +95,11 @@ def parse_conf(conf_path=CONF_PATH):
     
     return files, tools
 
-# parse variables of format $var in a string
+# parse variables of format $var
 def parse_vars(string, vars):
-    for var in vars:
+    for var in vars.reverse():
         if '$%s' % var in string:
-            string = string.replace('$%s' % var, vars[var])
+            string = string.replace('$%s' % var, vars[var]['path'])
     return string
 
 # parse command-line arguments
