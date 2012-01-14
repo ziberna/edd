@@ -1,4 +1,4 @@
-# Ed
+# Edd
 # Copyright (C) 2011 Jure Žiberna
 #
 # This program is free software: you can redistribute it and/or modify
@@ -15,7 +15,7 @@
 # along with this program.
 # If not, see http://www.gnu.org/licenses/gpl-3.0.html
 
-DESCRIPTION = "Ed (C) 2011 Jure Žiberna"
+DESCRIPTION = "Edd (C) 2011 Jure Žiberna"
 
 import os
 import re
@@ -23,10 +23,10 @@ import subprocess
 import shlex
 import argparse
 
-from ed.lict import lict
+from edd.lict import lict
 
 # path to configuration file, default editor
-CONF_PATH = os.environ['HOME'] + '/.config/ed'
+CONF_PATH = os.environ['HOME'] + '/.config/edd'
 EDITOR = os.environ['EDITOR'] if 'EDITOR' in os.environ else 'vi'
 
 def parse_conf(conf_path=CONF_PATH):
