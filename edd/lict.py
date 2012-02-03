@@ -48,6 +48,9 @@ class lict(dict):
     def index(self, key):
         return self.__list__.index(key)
     
+    def sort(self, key=None, reverse=False):
+        self.__list__.sort(key=key, reverse=reverse)
+    
     def reverse(self):
         clone = lict(self)
         clone.__list__ = list(self.__list__)
@@ -78,3 +81,4 @@ class lict(dict):
     
     def __repr__(self):
         return '[%s]' % ', '.join(['%s: %s' %  (repr(key), repr(self[key])) for key in self.__list__])
+    
