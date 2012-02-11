@@ -181,7 +181,7 @@ def from_tools(tool, tools):
             # ask for a choice or command
             optioner = lambda opts, num: opts(num) if opts(num) == opts[opts(num)] else '%s (%s)' % (opts(num), opts[opts(num)])
             selector = lambda opts, num: opts[opts(num)]
-            command = ask('Choose a file or type a command', tools, optioner, selector, '1')
+            command = ask('Choose a tool or type a command', tools, optioner, selector, '1')
         else:
             command = tool
     else:
